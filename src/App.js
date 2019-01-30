@@ -26,12 +26,25 @@ class Counter extends React.Component {
       score: 0
     };
   }
+  // If it's not an arrow function the "this" method references increment score.
+  // When it's an arrow function like here this belongs to the parent component - the Counter class
+  incrementScore = () => {
+    this.setState({
+      score: this.state.score + 1
+    });
+  };
+
   render() {
     return (
       <div className="counter">
         <button className="counter-action decrement"> - </button>
         <span className="counter-score">{this.state.score}</span>
-        <button className="counter-action increment"> + </button>
+        <button
+          onClick={this.incrementScore}
+          className="counter-action increment"
+        >
+          +
+        </button>
       </div>
     );
   }
