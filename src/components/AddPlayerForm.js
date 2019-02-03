@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 
 class AddPlayerForm extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      value: ""
-    };
-  }
+  state = {
+    value: ""
+  };
 
   handleValueChange = e => {
     this.setState({
@@ -15,8 +12,10 @@ class AddPlayerForm extends Component {
   };
 
   handleSubmit = e => {
+    const { addPlayer } = this.props;
+
     e.preventDefault(); // Prevent default form act
-    this.props.addPlayer(this.state.value);
+    addPlayer(this.state.value);
     this.setState({ value: "" }); // This clears the text input field
   };
 

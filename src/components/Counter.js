@@ -1,18 +1,17 @@
 import React from "react";
 
-const Counter = props => {
-  let index = props.index;
+const Counter = ({ index, score, changeScore }) => {
   return (
     <div className="counter">
       <button
-        onClick={() => props.changeScore(index, -1)}
+        onClick={() => changeScore(index, -1)}
         className="counter-action decrement"
       >
         -
       </button>
-      <span className="counter-score">{props.score}</span>
+      <span className="counter-score">{score}</span>
       <button
-        onClick={() => props.changeScore(index, +1)}
+        onClick={() => changeScore(index, +1)}
         className="counter-action increment"
       >
         +
