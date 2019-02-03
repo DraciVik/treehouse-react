@@ -4,7 +4,7 @@ const Star = props => (
   // 1. Call the function that updates the rating state each time a list item is clicked
   // 2. Give the <li> the class 'selected' if it's one of the selected stars
   <li
-    onClick={props.starRating}
+    onClick={props.ratingUpdate}
     className={props.isSelected ? "selected" : null}
   >
     <svg x="0px" y="0px" viewBox="0 0 16 15" className="star">
