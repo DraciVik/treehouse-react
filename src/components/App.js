@@ -31,6 +31,7 @@ class App extends Component {
       ]
     };
   }
+  //
 
   // player id counter
   prevPlayerId = 4;
@@ -70,12 +71,17 @@ class App extends Component {
   };
 
   render() {
+    const arrOfScores = [];
+    for (let i = 0; i < this.state.players.length; i++) {
+      arrOfScores.push(this.state.players[i].score);
+    }
     return (
       <div className="scoreboard">
         <Header title="Scoreboard" players={this.state.players} />
         {/* Players List */}
         {this.state.players.map((player, index) => (
           <Player
+            scoreArr={arrOfScores}
             changeScore={this.handleScoreChange}
             score={player.score}
             name={player.name}

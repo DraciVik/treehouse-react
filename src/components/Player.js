@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Counter from "./Counter";
+import Crown from "./Crown";
 
 class Player extends PureComponent {
   static propTypes = {
@@ -9,7 +10,8 @@ class Player extends PureComponent {
     name: PropTypes.string,
     index: PropTypes.number,
     score: PropTypes.number,
-    id: PropTypes.number
+    id: PropTypes.number,
+    scoreArr: PropTypes.array
   };
 
   render() {
@@ -20,6 +22,7 @@ class Player extends PureComponent {
           <button className="remove-player" onClick={() => removePlayer(id)}>
             x
           </button>
+          <Crown />
           {name}
         </span>
         <Counter index={index} changeScore={changeScore} score={score} />
