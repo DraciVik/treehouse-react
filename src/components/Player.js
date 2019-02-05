@@ -11,19 +11,20 @@ class Player extends PureComponent {
     index: PropTypes.number,
     score: PropTypes.number,
     id: PropTypes.number,
-    scoreArr: PropTypes.array
+    scoreArr: PropTypes.array,
+    isHighScore: PropTypes.bool
   };
 
   render() {
     const { name, removePlayer, score, index, changeScore, id } = this.props;
-    const highScore = Math.max(...this.props.scoreArr);
+
     return (
       <div className="player">
         <span className="player-name">
           <button className="remove-player" onClick={() => removePlayer(id)}>
             x
           </button>
-          <Crown isHighScore={this.props.score >= highScore} />
+          <Crown isHighScore={this.props.isHighScore} />
           {name}
         </span>
         <Counter index={index} changeScore={changeScore} score={score} />
